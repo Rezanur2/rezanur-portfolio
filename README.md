@@ -1,234 +1,177 @@
 # Md. Rezanur Rahman — Portfolio
 
-A personal portfolio for a junior web developer, built with Next.js App Router, TypeScript, Tailwind CSS v4, Framer Motion, and Lucide React.
+A modern, responsive, and accessible personal portfolio for a Junior Web Developer & Frontend Developer. Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Framer Motion**, and **Lucide React**.
 
-The site presents four real, deployed learning projects with screenshots captured from the live applications, honest feature descriptions, and links to both the live demo and the public source code.
+The site presents four real, deployed learning projects with authentic screenshots captured from the live applications, honest feature descriptions, problem-solving breakdowns, and direct links to both live demos and GitHub repositories.
 
-## What is included
+---
 
-- Single-page homepage with Home, About, Skills, Education, Projects, and Contact sections
-- Four case-study routes:
-  - `/projects/bazar-dor`
-  - `/projects/bangla-news-24`
-  - `/projects/fitlog`
-  - `/projects/devstack`
-- Light-first editorial design with a saved light/dark toggle
-- Responsive navigation with an accessible mobile menu, active-section highlighting, and a "Let's Talk" link that scrolls to Contact
-- Contact form with validation, loading and error states, an optional Formspree endpoint, and an honest pre-filled email fallback when online delivery is not configured
-- Portrait photo, resume download/view links that appear only when the files exist, and an email fallback otherwise
-- Floating Back to Top control that stays clear of the contact form and footer
-- SEO metadata, canonical URLs, per-project social images, JSON-LD, `robots.txt`, and `sitemap.xml`
-- Custom 404 page with a real `404` status for unknown project slugs, reduced-motion support, skip link, visible focus states, and keyboard-friendly navigation
+## 🌟 Highlights & Features
 
-## Tech stack
+- **Responsive Single-Page Layout**: Smooth scroll navigation across Home, About, Skills, Education, Projects, and Contact sections.
+- **Four In-Depth Project Case Studies**:
+  - [`/projects/bazar-dor`](file:///c:/Durbar/portfolio-design-with-ai/rezanur-portfolio/src/data/projects.ts) — Daily commodity market tracker with dynamic filtering and crowd-sourced reporting.
+  - [`/projects/bangla-news-24`](file:///c:/Durbar/portfolio-design-with-ai/rezanur-portfolio/src/data/projects.ts) — Curated Bangla news aggregator with categorical feeds and responsive reading mode.
+  - [`/projects/fitlog`](file:///c:/Durbar/portfolio-design-with-ai/rezanur-portfolio/src/data/projects.ts) — Workout and routine tracker with localized exercise state management.
+  - [`/projects/devstack`](file:///c:/Durbar/portfolio-design-with-ai/rezanur-portfolio/src/data/projects.ts) — Developer tooling directory with search, bookmarking, and category exploration.
+- **Editorial Design with Light/Dark Mode**:
+  - Automatically matches system preference (`prefers-color-scheme`).
+  - Manual toggle with preference saved in `localStorage`.
+  - Zero theme-flash on initial page load via an inline head script.
+- **Server-Side Contact Form (Resend API)**:
+  - Backed by Next.js App Router API route (`/api/contact`).
+  - Direct inbox delivery via Resend API (`RESEND_API_KEY`).
+  - Client-side validation, anti-bot honeypot protection, responsive loading, error states, and pre-filled mail client fallback.
+- **Brand Identity & Multi-Format Icons**:
+  - Geometric blue brand monogram in Navbar and Footer.
+  - Multi-resolution `public/favicon.ico` (16×16, 32×32, 48×48).
+  - High-res Next.js App Router icon (`src/app/icon.png`) and Apple touch icon (`src/app/apple-icon.png`).
+- **Always Accessible Navigation**:
+  - Floating Back-to-Top button visible across the viewport.
+  - Mobile navigation drawer with keyboard focus management and escape-key handling.
+- **SEO & Social Sharing Ready**:
+  - Dynamic Open Graph social preview cards (`1200×630`) generated via `next/og`.
+  - Canonical URLs, JSON-LD structured data schema (`Person`), `robots.txt`, and automated `sitemap.xml`.
 
-| Layer | Choice |
-| --- | --- |
-| Framework | Next.js 16 (App Router, Cache Components, Partial Prefetching) |
-| Language | TypeScript |
-| Styling | Tailwind CSS v4 |
-| Animation | Framer Motion |
-| Icons | Lucide React + local brand SVGs |
-| Fonts | Geist, Geist Mono, Instrument Serif via `next/font` |
-| Deployment target | Vercel (any Node host that supports Next.js also works) |
+---
 
-No UI kit or theme library is used. The design tokens live in `src/app/globals.css`.
+## 🛠️ Tech Stack
 
-## Getting started
+| Layer | Technology | Details |
+| :--- | :--- | :--- |
+| **Framework** | [Next.js 16](https://nextjs.org/) | App Router, Turbopack, Partial Prefetching |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) | Strict type-checking and interface models |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) | CSS variables, custom themes, utility tokens |
+| **Motion & Animation** | [Framer Motion](https://www.framer.com/motion/) | Subtle entrance reveals and scroll-triggered animations |
+| **Icons** | [Lucide React](https://lucide.dev/) | Clean, accessible vector icons |
+| **Email Delivery** | [Resend](https://resend.com/) | Server-side transactional email API |
+| **Typography** | `next/font` | Geist Sans, Geist Mono, and Instrument Serif |
+| **Deployment Target** | [Vercel](https://vercel.com/) | Edge optimization, continuous deployment |
 
-Requirements: Node.js 20.9 or newer (22 LTS recommended) and npm.
+---
 
-```bash
-npm install
-cp .env.example .env.local
-npm run dev
-```
-
-Open <http://localhost:3000>.
-
-### Environment variables
-
-| Variable | Required | Purpose |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Recommended | Public production URL used for canonical links, Open Graph URLs, `robots.txt`, and `sitemap.xml`. Falls back to `VERCEL_PROJECT_PRODUCTION_URL`, then `http://localhost:3000`. |
-| `NEXT_PUBLIC_FORMSPREE_ENDPOINT` | Optional | Formspree form endpoint such as `https://formspree.io/f/xxxxxxxx`. When empty, the contact form opens a pre-filled email draft instead of sending online. |
-
-Both variables are public values. Do not put API keys or private tokens in `NEXT_PUBLIC_*` variables.
-
-### Scripts
-
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the development server |
-| `npm run lint` | Run ESLint |
-| `npm run build` | Production build and type-check |
-| `npm run start` | Serve the production build |
-
-## Project structure
+## 📁 Project Structure
 
 ```text
-src/
-  app/
-    layout.tsx              Root layout, metadata, theme script
-    page.tsx                Homepage composition + Person schema
-    globals.css             Design tokens, theme variants, utilities
-    not-found.tsx           Custom 404 page
-    icon.svg                The only favicon source
-    opengraph-image.tsx     Generated 1200×630 social image
-    robots.ts               robots.txt
-    sitemap.ts              sitemap.xml
-    projects/[slug]/page.tsx  Case-study template
-  components/
-    layout/                 Navbar, Footer, BackToTop, ThemeScript, ThemeToggle
-    sections/               Hero, About, Skills, Education, Projects, Contact
-    projects/               ProjectCard, ProjectThumbnail
-    contact/                ContactForm
-    ui/                     Buttons, headings, reveal, portrait, resume, social links, copy email
-  data/                     All editable content
-  lib/                      Theme, asset checks, site URL, utilities
-  proxy.ts                  Rejects unknown project slugs before rendering
-  types/                    Shared TypeScript types
-public/
-  images/Rezanur.jpg        Portrait used in the hero
-  images/projects/          Real screenshots of the four live sites
-  resume.pdf                Optional — add your resume here
+rezanur-portfolio/
+├── public/
+│   ├── favicon.ico             # Multi-size browser icon (16, 32, 48)
+│   ├── resume.pdf              # Downloadable curriculum vitae
+│   └── images/
+│       ├── logo.png            # High-resolution brand logo
+│       ├── logo.jpg            # Brand logo image
+│       ├── favicon.png         # Web app icon
+│       ├── Rezanur.jpg         # Profile portrait photo
+│       └── projects/           # High-resolution project screenshots
+│           ├── bazar-dor.png
+│           ├── bangla-news-24.png
+│           ├── fitlog.png
+│           └── devstack.png
+├── src/
+│   ├── app/
+│   │   ├── api/contact/        # Server-side contact email endpoint (Resend)
+│   │   ├── projects/[slug]/    # Case-study dynamic detail pages
+│   │   ├── apple-icon.png      # 180x180 Apple touch icon
+│   │   ├── icon.png            # 512x512 App Router web icon
+│   │   ├── globals.css         # Tailwind tokens & dark/light theme definitions
+│   │   ├── layout.tsx          # Root layout, metadata & font definitions
+│   │   ├── not-found.tsx       # Custom branded 404 page
+│   │   ├── opengraph-image.tsx # Automated social share image generator
+│   │   ├── page.tsx            # Main single-page portfolio view
+│   │   ├── robots.ts           # Search engine crawling rules
+│   │   └── sitemap.ts          # Automated XML sitemap
+│   ├── components/
+│   │   ├── contact/            # Contact form component
+│   │   ├── layout/             # Navbar, Footer, BackToTop, ThemeToggle
+│   │   ├── projects/           # Project card & thumbnail previews
+│   │   ├── sections/           # Hero, About, Skills, Education, Projects
+│   │   └── ui/                 # Reusable buttons, badges, portrait, headings
+│   ├── data/                   # Content files (site, projects, skills, education)
+│   ├── lib/                    # Asset helpers, site URL utilities, theme scripts
+│   ├── proxy.ts                # Route validation proxy for invalid project slugs
+│   └── types/                  # TypeScript interfaces & types
+├── .env.example                # Example environment variables
+├── package.json
+└── tsconfig.json
 ```
 
-## Editing content
+---
 
-All copy is kept in `src/data/` so the components rarely need to change.
+## 🚀 Getting Started
 
-| File | What it controls |
-| --- | --- |
-| `src/data/site.ts` | Name, role, email, phone, WhatsApp, intro, GitHub/LinkedIn URLs |
-| `src/data/navigation.ts` | Section labels and anchor IDs |
-| `src/data/skills.ts` | Skill groups, items, notes, and learning status |
-| `src/data/education.ts` | Degree, institution, university, year, languages |
-| `src/data/projects.ts` | Every project's copy, features, challenges, links, and screenshot |
-| `src/data/projects.ts` → `getProjectBySlug` | Case-study lookup |
-| `src/data/projects.ts` → `getNextProject` | "Next project" footer link |
+### Prerequisites
 
-### Replace the profile photo
+Ensure you have **Node.js 20.9+** (22 LTS recommended) and **npm** installed.
 
-The hero uses `public/images/Rezanur.jpg`. Replace that file with a portrait of the same name (ideally 4:5, at least 800×1000). The `ProfilePortrait` component checks for the file at render time; if it is missing, a designed monogram keeps the layout intact.
+### Installation
 
-After adding or replacing the file, restart the dev server or rebuild for production so the server-side file check runs again.
-
-### Add the resume
-
-Add your PDF at `public/resume.pdf`. The hero and contact section then render **Download Resume** (downloads as `Md-Rezanur-Rahman-Resume.pdf`) and **View Resume** links. Until the file exists, visitors see an honest note offering to email a copy instead — no link to a missing file is emitted.
-
-The file check runs at build/render time, so restart the dev server or rebuild after adding the PDF.
-
-### Configure the contact form
-
-1. Create a form at [Formspree](https://formspree.io/).
-2. Copy the endpoint URL, which looks like `https://formspree.io/f/xxxxxxxx`.
-3. Add it to `.env.local` (and to your host's environment variables):
-
+1. **Clone the repository**:
    ```bash
-   NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxxxxxx
+   git clone https://github.com/Rezanur2/rezanur-portfolio.git
+   cd rezanur-portfolio
    ```
 
-4. Restart the dev server or redeploy.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-Without an endpoint, the form still validates the fields and then opens a pre-filled email draft in the visitor's mail app. The page states clearly that online delivery is not configured and that nothing has been sent automatically. There is no fake success state.
+3. **Configure Environment Variables**:
+   Copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+   Add your credentials:
+   ```env
+   # Public site URL (for metadata, sitemap & OG tags)
+   NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
-The form also includes a hidden honeypot field; submissions that fill it are ignored.
+   # Direct email delivery via Resend (https://resend.com)
+   RESEND_API_KEY=your_resend_api_key_here
+   ```
 
-### Add or edit a project
+4. **Run development server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-1. Add a 1440×900 screenshot to `public/images/projects/`.
-2. Add an entry to the `projects` array in `src/data/projects.ts`.
-3. Use a URL-safe `slug`; the case-study route is generated from it automatically.
+---
 
-Required project fields are defined in `src/types/portfolio.ts`:
+## 📜 Available Scripts
 
-- `name`, `tagline`, `summary`, `category`, `projectType`, `role`
-- `tech`, `image`, `imageAlt`, `liveUrl`, `githubUrl`
-- `overview`, `problem`, `features`, `challenges`, `improvements`
-- `limitation` (optional, shown in an amber callout)
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts local Next.js development server with Turbopack |
+| `npm run build` | Builds optimized production bundle with typechecking |
+| `npm run start` | Serves the production build locally |
+| `npm run lint` | Runs ESLint to check code quality and rules |
 
-`src/proxy.ts` reads the same project list, so a new slug gets a real case-study route and unknown slugs return a genuine `404` response. Keep descriptions factual. If a project's behavior changes, update the copy and replace the screenshot.
+---
 
-## Theme behavior
+## 🌐 Deployment on Vercel
 
-- On the first visit, the inline script in `src/lib/theme.ts` reads `prefers-color-scheme`.
-- Light is the fallback when the media query is unavailable.
-- A manual toggle stores `light` or `dark` under the key `rezanur-portfolio-theme` in `localStorage`.
-- The script runs before the first paint, so there is no flash of the wrong theme.
-- The toggle updates `data-theme` on `<html>`, which drives the `dark:` Tailwind variant and all CSS variables.
+1. Push your repository to **GitHub**.
+2. Visit **[vercel.com](https://vercel.com)** and log in with your GitHub account.
+3. Click **"Add New..."** → **"Project"** and select `rezanur-portfolio`.
+4. Under **Environment Variables**, configure:
+   - `RESEND_API_KEY` = `your_resend_api_key`
+   - `NEXT_PUBLIC_SITE_URL` = `https://your-portfolio.vercel.app`
+5. Click **"Deploy"**. Your site will be live within a minute with automatic SSL and CI/CD on every push.
 
-## Favicon
+---
 
-The only favicon source is `src/app/icon.svg`, following the App Router file convention. There is deliberately no `public/favicon.ico` or extra `icon.png`, so Next.js does not emit conflicting icon tags.
+## 👨‍💻 Author
 
-To replace the icon, edit `src/app/icon.svg` or delete it and add an `icon.png` / `icon.ico` in `src/app/` instead. Use one approach at a time. The navbar monogram is a separate component and is not tied to the favicon.
+**Md. Rezanur Rahman**
+- **Role**: Junior Web Developer / Frontend Developer
+- **Email**: [mdrezanurrahman2@gmail.com](mailto:mdrezanurrahman2@gmail.com)
+- **GitHub**: [@Rezanur2](https://github.com/Rezanur2)
+- **LinkedIn**: [Md. Rezanur Rahman](https://www.linkedin.com/in/md-rezanur-rahman/)
+- **WhatsApp**: [+880 1551-986848](https://wa.me/8801551986848)
 
-## Back to Top and footer
+---
 
-The floating Back to Top button appears after scrolling and hides while the Contact section or footer is visible, so it never covers the form or footer links. It uses the accent colour, a Lucide arrow, a 44×44px target, and honours reduced-motion preferences.
+## 📄 License
 
-The footer is always a dark contrast surface. It contains section navigation, contact details, social links, and an availability note.
-
-## SEO and site URL
-
-Set the public production URL before deploying:
-
-```bash
-# .env.local
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-```
-
-Copy `.env.example` as a starting point. This value is used for canonical URLs, Open Graph URLs, `robots.txt`, and `sitemap.xml`.
-
-On Vercel, `VERCEL_PROJECT_PRODUCTION_URL` is used as a fallback when `NEXT_PUBLIC_SITE_URL` is not set. Set the explicit variable once a custom domain is connected so canonical URLs are stable.
-
-Metadata lives in `src/app/layout.tsx`; each case study generates its own title, description, canonical URL, and social image from the project data. The homepage and each case study also emit JSON-LD structured data.
-
-## Deployment
-
-### Vercel
-
-1. Push the repository to GitHub.
-2. Import the repository in Vercel. The framework preset is detected automatically.
-3. Add `NEXT_PUBLIC_SITE_URL` under **Settings → Environment Variables** with the production URL.
-4. Optionally add `NEXT_PUBLIC_FORMSPREE_ENDPOINT` to enable online form delivery.
-5. Deploy.
-6. Verify `/`, all four `/projects/*` routes, `/robots.txt`, `/sitemap.xml`, and a random URL (which should show the custom 404 with a `404` status).
-
-Build command: `npm run build`. No extra configuration is required.
-
-### Any Node host
-
-Run `npm install`, then `npm run build`, then `npm run start`. The default port is `3000`; most hosts provide a `PORT` environment variable. Set the environment variables in the host's settings.
-
-## Accessibility and performance notes
-
-- Semantic landmarks (`header`, `nav`, `main`, `footer`), one `h1` per page, and ordered headings
-- Skip link as the first focusable element
-- `aria-expanded` / `aria-controls` on the mobile menu, Escape to close, focus moved into and returned from the menu
-- Visible focus rings and large touch targets
-- `prefers-reduced-motion` respected by both CSS and Framer Motion
-- Screenshots and the portrait use `next/image` with responsive `sizes`
-- Text contrast was checked against the page background in both themes
-- No horizontal overflow down to 320px
-
-## Content and asset notes
-
-- Project screenshots were captured from the deployed sites in October 2026.
-- The four repositories and live links were verified at the same time.
-- Bazar Dor and Bangla News 24 depend on external APIs and configured authentication credentials.
-- Password reset is listed in the skills section with a note that it is not implemented in the current deployed builds.
-- FitLog and DevStack keep their state in memory, so selections reset on a full refresh; this is stated on their case-study pages.
-- The source repositories are public under the `Rezanur2` GitHub account.
-
-## Maintenance checklist
-
-- [x] Professional resume PDF generated and active at `public/resume.pdf`
-- [ ] Replace `public/images/Rezanur.jpg` if the portrait changes
-- [ ] Configure `NEXT_PUBLIC_FORMSPREE_ENDPOINT` or `RESEND_API_KEY` for online form delivery
-- [ ] Set `NEXT_PUBLIC_SITE_URL` before going live
-- [ ] Update availability wording as circumstances change
-- [ ] Re-capture screenshots if a project's UI changes
-- [ ] Run `npm run lint` and `npm run build` after content edits
+This project is licensed under the **MIT License**.
