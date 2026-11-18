@@ -1,15 +1,16 @@
 # Md. Rezanur Rahman — Portfolio
 
-A modern, responsive, and accessible personal portfolio for a Junior Web Developer & Frontend Developer. Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Framer Motion**, and **Lucide React**.
+A modern, responsive, and accessible personal portfolio for a Junior Full-Stack Web Developer. Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Framer Motion**, and **Lucide React**.
 
-The site presents four real, deployed learning projects with authentic screenshots captured from the live applications, honest feature descriptions, problem-solving breakdowns, and direct links to both live demos and GitHub repositories.
+The site presents five projects with authentic screenshots and previews, honest feature descriptions, problem-solving breakdowns, and direct links to both live demos and GitHub repositories.
 
 ---
 
 ## 🌟 Highlights & Features
 
 - **Responsive Single-Page Layout**: Smooth scroll navigation across Home, About, Skills, Education, Projects, and Contact sections.
-- **Four In-Depth Project Case Studies**:
+- **Five In-Depth Project Case Studies**:
+  - [`/projects/book-nook`](file:///c:/Durbar/portfolio-design-with-ai/rezanur-portfolio/src/data/projects.ts) — Full-stack library management platform with dynamic borrowing, inventory updates, and Better-Auth JWT token verification.
   - [`/projects/bazar-dor`](file:///c:/Durbar/portfolio-design-with-ai/rezanur-portfolio/src/data/projects.ts) — Daily commodity market tracker with dynamic filtering and crowd-sourced reporting.
   - [`/projects/bangla-news-24`](file:///c:/Durbar/portfolio-design-with-ai/rezanur-portfolio/src/data/projects.ts) — Curated Bangla news aggregator with categorical feeds and responsive reading mode.
   - [`/projects/fitlog`](file:///c:/Durbar/portfolio-design-with-ai/rezanur-portfolio/src/data/projects.ts) — Workout and routine tracker with localized exercise state management.
@@ -63,6 +64,7 @@ rezanur-portfolio/
 │       ├── favicon.png         # Web app icon
 │       ├── Rezanur.jpg         # Profile portrait photo
 │       └── projects/           # High-resolution project screenshots
+│           ├── book-nook.png
 │           ├── bazar-dor.png
 │           ├── bangla-news-24.png
 │           ├── fitlog.png
@@ -164,7 +166,7 @@ Ensure you have **Node.js 20.9+** (22 LTS recommended) and **npm** installed.
 ## 👨‍💻 Author
 
 **Md. Rezanur Rahman**
-- **Role**: Junior Web Developer / Frontend Developer
+- **Role**: Junior Full-Stack Web Developer
 - **Email**: [mdrezanurrahman2@gmail.com](mailto:mdrezanurrahman2@gmail.com)
 - **GitHub**: [@Rezanur2](https://github.com/Rezanur2)
 - **LinkedIn**: [Md. Rezanur Rahman](https://www.linkedin.com/in/md-rezanur-rahman/)

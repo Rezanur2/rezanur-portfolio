@@ -195,9 +195,21 @@ async function ProjectContent({ params }: ProjectPageProps) {
               className={buttonStyles("secondary")}
             >
               <GithubIcon aria-hidden="true" className="size-4" />
-              View source
+              {project.githubServerUrl ? "Client source" : "View source"}
               <span className="sr-only">(opens in a new tab)</span>
             </a>
+            {project.githubServerUrl ? (
+              <a
+                href={project.githubServerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonStyles("secondary")}
+              >
+                <GithubIcon aria-hidden="true" className="size-4" />
+                Server source
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
+            ) : null}
             <Link
               href="/#projects"
               className="inline-flex min-h-11 items-center gap-1.5 px-2 text-xs font-semibold text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -398,10 +410,22 @@ async function ProjectContent({ params }: ProjectPageProps) {
                   rel="noopener noreferrer"
                   className="inline-flex min-h-10 items-center justify-between gap-2 text-xs font-semibold text-foreground transition-colors hover:text-accent"
                 >
-                  Source code
+                  {project.githubServerUrl ? "Client repository" : "Source code"}
                   <ArrowUpRight aria-hidden="true" className="size-3.5" />
                   <span className="sr-only">(opens in a new tab)</span>
                 </a>
+                {project.githubServerUrl ? (
+                  <a
+                    href={project.githubServerUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-10 items-center justify-between gap-2 text-xs font-semibold text-foreground transition-colors hover:text-accent"
+                  >
+                    Server repository
+                    <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                    <span className="sr-only">(opens in a new tab)</span>
+                  </a>
+                ) : null}
               </div>
             </div>
           </aside>

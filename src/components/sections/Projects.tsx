@@ -25,7 +25,7 @@ export function Projects() {
                   </span>
                 </>
               }
-              description="Four deployed applications, each with public source code. Every case study covers the problem, the features that exist, and the work I would do next."
+              description="Five projects, each with public source code and live demos. Every case study covers the problem, the features that exist, and the work I would do next."
             />
             <a
               href={siteConfig.githubUrl}

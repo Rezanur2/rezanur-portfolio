@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types/portfolio";
 import { ProjectThumbnail } from "./ProjectThumbnail";
 import { GithubIcon } from "@/components/ui/BrandIcons";
+import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   project: Project;
@@ -72,7 +73,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               />
             </Link>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               <a
                 href={project.liveUrl}
                 target="_blank"
@@ -88,12 +89,35 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`View the ${project.name} source on GitHub (opens in a new tab)`}
-                title="View source on GitHub"
-                className="grid size-10 place-items-center rounded-xl border border-border bg-background text-foreground transition-colors hover:border-accent/60 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                aria-label={`View the ${project.name} ${project.githubServerUrl ? "client " : ""}source on GitHub (opens in a new tab)`}
+                title={project.githubServerUrl ? "Client repository on GitHub" : "View source on GitHub"}
+                className={cn(
+                  "grid size-10 place-items-center rounded-xl border border-border bg-background text-foreground transition-colors hover:border-accent/60 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
+                  project.githubServerUrl && "relative",
+                )}
               >
                 <GithubIcon aria-hidden="true" className="size-4" />
+                {project.githubServerUrl ? (
+                  <span className="absolute -bottom-1 -right-1 rounded border border-border bg-surface px-1 py-0.2 font-mono text-[8px] font-bold text-muted">
+                    UI
+                  </span>
+                ) : null}
               </a>
+              {project.githubServerUrl ? (
+                <a
+                  href={project.githubServerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View the ${project.name} server source on GitHub (opens in a new tab)`}
+                  title="Server repository on GitHub"
+                  className="relative grid size-10 place-items-center rounded-xl border border-border bg-background text-foreground transition-colors hover:border-accent/60 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                >
+                  <GithubIcon aria-hidden="true" className="size-4" />
+                  <span className="absolute -bottom-1 -right-1 rounded border border-border bg-surface px-1 py-0.2 font-mono text-[8px] font-bold text-accent">
+                    API
+                  </span>
+                </a>
+              ) : null}
             </div>
           </div>
         </div>

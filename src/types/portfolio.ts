@@ -40,6 +40,7 @@ export interface Project {
   imageAlt: string;
   liveUrl: string;
   githubUrl: string;
+  githubServerUrl?: string;
   overview: string[];
   problem: string;
   features: string[];

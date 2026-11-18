@@ -61,7 +61,7 @@ export function Hero() {
           </div>
 
           <p className="mt-4 text-center text-xs leading-5 text-muted lg:text-left">
-            Currently learning{" "}
+            Currently expanding into{" "}
             <span className="font-medium text-foreground">
               {siteConfig.currentlyLearning.join(" and ")}
             </span>

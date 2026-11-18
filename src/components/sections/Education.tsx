@@ -102,9 +102,8 @@ export function Education() {
                 <p className="mt-4 text-sm leading-7 text-muted">
                   My web development knowledge comes from focused practice:
                   reading documentation, rebuilding interfaces, and working
-                  through the problems that appear in real projects. The four
-                  case studies on this site are the clearest record of that
-                  work.
+                  through the problems that appear in real projects. The case
+                  studies on this site are the clearest record of that work.
                 </p>
                 <a
                   href="#projects"
