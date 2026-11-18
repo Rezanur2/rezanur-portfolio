@@ -5,7 +5,7 @@ import { publicFileExists } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 
 const RESUME_PATH = "/resume.pdf";
-const RESUME_DOWNLOAD_NAME = "Md-Rezanur-Rahman-Resume.pdf";
+const RESUME_DOWNLOAD_NAME = "Md_Rezanur_Rahman_Resume.pdf";
 
 interface ResumeActionsProps {
   className?: string;
