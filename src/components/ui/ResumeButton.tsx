@@ -4,8 +4,9 @@ import { siteConfig } from "@/data/site";
 import { publicFileExists } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 
-const RESUME_PATH = "/resume.pdf";
-const RESUME_DOWNLOAD_NAME = "Md_Rezanur_Rahman_Resume.pdf";
+const RESUME_FILE_NAME = "Md_Rezanur_Rahman_Resume.pdf";
+const RESUME_PATH = `/${RESUME_FILE_NAME}`;
+const RESUME_DOWNLOAD_NAME = RESUME_FILE_NAME;
 
 interface ResumeActionsProps {
   className?: string;
@@ -13,14 +14,14 @@ interface ResumeActionsProps {
 }
 
 /**
- * Only renders real resume links when `public/resume.pdf` exists. Without the
+ * Only renders real resume links when `public/Md_Rezanur_Rahman_Resume.pdf` exists. Without the
  * file, an honest email fallback is shown instead of a dead download link.
  */
 export function ResumeActions({
   className,
   align = "start",
 }: ResumeActionsProps) {
-  const hasResume = publicFileExists("resume.pdf");
+  const hasResume = publicFileExists(RESUME_FILE_NAME);
 
   if (!hasResume) {
     return (
@@ -37,7 +38,7 @@ export function ResumeActions({
           </span>{" "}
           Will be served from{" "}
           <code className="rounded bg-background px-1.5 py-0.5 font-mono text-[11px] text-foreground">
-            public/resume.pdf
+            public/{RESUME_FILE_NAME}
           </code>
         </p>
         <p className="leading-snug">
