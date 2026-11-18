@@ -7,6 +7,78 @@ import type { Project } from "@/types/portfolio";
  */
 export const projects: Project[] = [
   {
+    slug: "book-nook",
+    name: "Book Nook",
+    tagline: "Discover, contribute, and borrow books with real-time inventory.",
+    summary:
+      "A full-stack library management application that allows users to discover books, contribute books, borrow available copies, and manage their borrowing history.",
+    category: "Full-Stack Library Management Platform",
+    projectType: "Full-stack web application",
+    role: "Full-stack design and development",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "Better-Auth",
+      "Tailwind CSS",
+    ],
+    image: "/images/projects/book-nook.png",
+    imageAlt:
+      "Preview of the Book Nook full-stack library management platform showing book discovery and borrowing",
+    liveUrl: "https://booknook-frontend-gray.vercel.app/",
+    githubUrl: "https://github.com/Rezanur2/book-nook-client",
+    githubServerUrl: "https://github.com/Rezanur2/book-nook-server",
+    overview: [
+      "Book Nook is a full-stack library management platform designed to make community book sharing, discovery, and borrowing transparent and automated. Readers can explore available books across diverse categories, contribute new titles to the catalog, borrow available physical copies, and manage active loans and return statuses through a personal user dashboard.",
+      "The application is architected with a decoupled frontend and backend. The client is built with Next.js App Router, TypeScript, and Tailwind CSS, featuring Better-Auth for authentication. The backend is an Express.js REST API using the official MongoDB native driver, validating client requests using cryptographic JWT verification backed by remote JWKS.",
+    ],
+    problem:
+      "Community libraries and informal book collections often face tracking difficulties: missing inventory records, unreturned copies, and cumbersome manual lending logs. Book Nook provides a centralized system that enforces dynamic inventory counts, prevents duplicate borrowing of the same title by a single user, and offers clear tracking for active and returned books.",
+    features: [
+      "Email/password and Google authentication using Better-Auth",
+      "Book discovery with category-based filtering and instant search",
+      "Book borrowing and return management with dynamic inventory updates",
+      "Personal book management, borrowing history, and protected dashboard routes",
+      "Book contribution workflow with title, author, category, and quantity inputs",
+      "Duplicate loan prevention preventing multiple simultaneous borrows of the same title",
+      "Atomic inventory decrement on borrow and increment on return",
+      "Responsive layout designed for mobile, tablet, and desktop viewports",
+    ],
+    challenges: [
+      {
+        title: "Cross-service authentication & remote JWKS token verification",
+        description:
+          "Authentication is managed via Better-Auth on the Next.js client, which generates cryptographically signed JWT tokens. The Express backend validates every protected request by pulling the public keyset from the remote JWKS endpoint and verifying token signatures without storing sensitive shared secrets in the server environment.",
+      },
+      {
+        title: "Atomic inventory management during borrowing & returning",
+        description:
+          "To prevent race conditions where multiple users attempt to borrow the last available copy of a popular book simultaneously, borrowing operations execute atomic conditional updates in MongoDB ($inc: { quantity: -1 } where quantity > 0). When a book is returned, the borrow record is marked as returned and the book quantity is atomically incremented back into the pool.",
+      },
+      {
+        title: "Guarding against duplicate active borrows",
+        description:
+          "Before authorizing a loan, the API queries the borrowRecords collection to confirm whether the requesting user already has an active (unreturned) loan for that specific book. If an active record is found, the server rejects the request with a clear message rather than creating redundant loans.",
+      },
+      {
+        title: "Protecting client routes and backend API endpoints",
+        description:
+          "Client-side routes for contributing books, viewing borrow histories, and accessing user dashboards are guarded by auth middleware that redirects unauthenticated visitors to login. On the server side, an Express authentication middleware decodes verified claims and binds the authenticated user payload to incoming requests.",
+      },
+    ],
+    improvements: [
+      "Add automated email reminders for books approaching their return due dates.",
+      "Implement a reservation waitlist queue when all copies of a book are currently borrowed.",
+      "Add full-text search across titles, authors, and book descriptions using MongoDB text indexes.",
+      "Introduce rate limiting on borrowing endpoints and end-to-end integration tests for inventory transactions.",
+    ],
+    limitation:
+      "Book discovery and lending transactions require active network connectivity to the deployed Express backend on Vercel and the MongoDB cluster.",
+  },
+  {
     slug: "bazar-dor",
     name: "Bazar Dor",
     tagline: "Everyday market prices, gathered in one place.",

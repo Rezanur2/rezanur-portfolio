@@ -52,8 +52,8 @@ export async function Footer() {
             </span>
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-6 text-footer-muted md:max-w-md">
-            {siteConfig.designation} · Building responsive interfaces with
-            React, Next.js, and TypeScript.
+            {siteConfig.designation} · Building responsive full-stack web
+            applications with React, Next.js, and Node.js.
           </p>
           <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1 text-[11px] font-medium text-footer-muted">
             <span

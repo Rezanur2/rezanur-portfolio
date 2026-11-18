@@ -28,8 +28,11 @@ const principles = [
 
 const facts = [
   { label: "Role", value: siteConfig.designation },
-  { label: "Focus", value: "Frontend Engineering & Responsive UI" },
-  { label: "Core stack", value: "React · Next.js · TypeScript · Tailwind CSS" },
+  { label: "Focus", value: "Full-Stack Web Development & Responsive UI" },
+  {
+    label: "Core stack",
+    value: "React · Next.js · TypeScript · Node.js · MongoDB",
+  },
   { label: "Learning", value: siteConfig.currentlyLearning.join(" · ") },
   { label: "Education", value: `${education.degree}, Kushtia Govt. College` },
 ];
@@ -53,7 +56,7 @@ export function About() {
                 </span>
               </>
             }
-            description="A junior developer building a foundation in frontend work, one complete project at a time."
+            description="A junior full-stack developer building practical web applications, one complete project at a time."
           />
         </Reveal>
 
@@ -62,26 +65,27 @@ export function About() {
             <div className="space-y-4">
               <Reveal>
                 <p className="text-pretty text-base leading-7 text-muted">
-                  I&apos;m Rezanur, a junior web developer focused on the
-                  frontend. Most of my learning happens through projects: I take
-                  an idea, build the interface, connect it to real data where I
-                  can, and then review what worked and what I would change. It
-                  is slower than following a tutorial, but it is how the ideas
-                  stick.
+                  I&apos;m Rezanur, a junior full-stack web developer. Most of
+                  my learning happens through projects: I take an idea, design
+                  the interface, build the API and database logic, and then
+                  review what worked and what I would change. It is slower than
+                  following a tutorial, but it is how the ideas stick.
                 </p>
               </Reveal>
               <Reveal delay={0.05}>
                 <p className="text-pretty text-base leading-7 text-muted">
-                  I enjoy learning new technologies and working through
-                  JavaScript problems. My favourite part of a build is the
-                  moment a static layout becomes an application — a filter that
-                  responds, a route that resolves, a form that tells you exactly
-                  what went wrong. Right now I&apos;m expanding my backend
-                  knowledge with{" "}
-                  <span className="font-medium text-foreground">Node.js</span>{" "}
+                  I enjoy working through JavaScript and TypeScript challenges
+                  across the entire stack. My favourite part of a build is the
+                  moment a static layout becomes a living application — an
+                  endpoint that validates data, an inventory count that updates
+                  atomically, and an interface that responds instantly. Having
+                  implemented full-stack workflows with{" "}
+                  <span className="font-medium text-foreground">Node.js</span>,{" "}
+                  <span className="font-medium text-foreground">Express</span>,
                   and{" "}
-                  <span className="font-medium text-foreground">MongoDB</span>,
-                  so I can understand the rest of the stack.
+                  <span className="font-medium text-foreground">MongoDB</span> in
+                  projects like Book Nook, I am now focused on deepening my
+                  backend architecture knowledge and writing clean, reliable code.
                 </p>
               </Reveal>
               <Reveal delay={0.08}>
@@ -160,9 +164,9 @@ export function About() {
                   </h3>
                 </div>
                 <p className="mt-2 text-xs leading-5 text-footer-muted sm:text-sm sm:leading-6">
-                  Junior web developer and frontend developer roles where I can
-                  contribute to real interfaces and keep learning from code
-                  review.
+                  Junior full-stack developer and frontend developer roles where
+                  I can contribute to real applications and keep learning from
+                  code review.
                 </p>
                 <Link
                   href="#contact"

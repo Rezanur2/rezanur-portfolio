@@ -102,8 +102,8 @@ export default function OpenGraphImage() {
               lineHeight: 1.5,
             }}
           >
-            React · Next.js · TypeScript — four deployed projects with live
-            demos and public source code.
+            React · Next.js · TypeScript · Node.js — five projects with
+            live demos and public source code.
           </div>
         </div>
 
